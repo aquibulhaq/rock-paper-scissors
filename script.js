@@ -39,3 +39,17 @@ function playRound(humanChoiceInt, computerChoiceInt) {
     ++computerScore;
   }
 }
+
+function playGame() {
+  for (let i = 0; i < 5; ++i)
+    playRound(getHumanChoice(), getComputerChoice());
+
+  if (humanScore === computerScore)
+    console.log('Draw!');
+  else if (humanScore > computerScore)
+    console.log('You win!');
+  else
+    console.log('You lose!');
+}
+
+playGame();
