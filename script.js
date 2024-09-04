@@ -19,3 +19,6 @@ function getHumanChoice() {
 
   return stringToInteger[choice];
 }
+
+let humanScore = 0;
+let computerScore = 0;
