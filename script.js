@@ -13,6 +13,19 @@ function handleClick(event) {
 
   if (id in stringToInteger)
     playRound(stringToInteger[id], getComputerChoice());
+
+  if (humanScore >= 5 || computerScore >= 5) {
+    ul.removeEventListener('click', handleClick);
+
+    const para = document.createElement('p');
+
+    if (humanScore >= 5)
+      para.textContent = 'You win! Congratulations!';
+    else
+      para.textContent = 'You lose! Better luck next time…';
+
+    output.appendChild(para);
+  }
 }
 
 const ul = document.querySelector('ul');
