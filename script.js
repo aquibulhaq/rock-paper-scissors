@@ -16,6 +16,8 @@ buttons.forEach(button =>
   )
 );
 
+const output = document.querySelector('#output');
+
 let humanScore = 0;
 let computerScore = 0;
 
@@ -25,13 +27,18 @@ function playRound(humanChoiceInt, computerChoiceInt) {
   const humanChoiceStr = integerToString[humanChoiceInt];
   const computerChoiceStr = integerToString[computerChoiceInt];
 
+  const para = document.createElement('p');
+
   if (humanChoiceInt === computerChoiceInt) {
-    console.log(`Draw! ${humanChoiceStr} and ${computerChoiceStr} draw.`);
+    para.textContent = `Draw! ${humanChoiceStr} and ${computerChoiceStr} draw.`;
   } else if ((computerChoiceInt + 1) % integerToString.length === humanChoiceInt) {
-    console.log(`You win! ${humanChoiceStr} beats ${computerChoiceStr}.`);
+    para.textContent = `You win! ${humanChoiceStr} beats ${computerChoiceStr}.`;
     ++humanScore;
   } else {
-    console.log(`You lose! ${computerChoiceStr} beats ${humanChoiceStr}.`);
+    para.textContent = `You lose! ${computerChoiceStr} beats ${humanChoiceStr}.`;
     ++computerScore;
   }
+
+  para.textContent += ` Player = ${humanScore}, Computer = ${computerScore}`;
+  output.appendChild(para);
 }
