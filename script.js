@@ -8,13 +8,16 @@ const stringToInteger = {
   scissors: 2
 };
 
-const buttons = document.querySelectorAll('button');
+function handleClick(event) {
+  const id = event.target.id;
 
-buttons.forEach(button =>
-  button.addEventListener('click', () =>
-    playRound(stringToInteger[button.id], getComputerChoice())
-  )
-);
+  if (id in stringToInteger)
+    playRound(stringToInteger[id], getComputerChoice());
+}
+
+const ul = document.querySelector('ul');
+
+ul.addEventListener('click', handleClick);
 
 const output = document.querySelector('#output');
 
